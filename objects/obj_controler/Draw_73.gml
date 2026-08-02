@@ -29,7 +29,7 @@ draw_set_alpha(1)
 	//Dsenhar Numeros nas linhas
 	//numero_linhas()
 
-draw_set_alpha(.4)
+draw_set_alpha(.2)
 draw_set_color(c_black)
 
 	//Desenhar linhas
