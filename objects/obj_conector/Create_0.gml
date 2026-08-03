@@ -15,3 +15,7 @@ _parado = true;
 //Depois de 20 frames se não houver colisão, então ele desliga pra valer
 desliga_time = 0;
 desliga_time_max = 20;
+
+
+//Editar de novo porra
+//sprite_index = (sprite_usado == noone) ? spr_objeto_conector_quatro : sprite_usado

@@ -7,16 +7,20 @@ var _col_down	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y
 //Verificar colisão direita
 if	_col_right && 
 	_col_right.energia == true &&
-	_col_right.in_move == false ||
+	_col_right.in_move == false &&
+	at_direita || //Pode ativar na direita
 	_col_left &&
 	_col_left.energia == true &&
-	_col_left.in_move == false ||
+	_col_left.in_move == false &&
+	at_esquerda || //Pode ativar na esquerda
 	_col_up &&
 	_col_up.energia == true &&
-	_col_up.in_move == false ||
+	_col_up.in_move == false &&
+	at_cima || //Pode ativar em cima
 	_col_down &&
 	_col_down.energia == true &&
-	_col_down.in_move == false
+	_col_down.in_move == false &&
+	at_baixo //Pode ativar embaixo
 {
 	ligado = true;
 	desliga_time = 0;
