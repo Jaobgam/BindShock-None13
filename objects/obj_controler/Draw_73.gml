@@ -20,8 +20,8 @@ else if desfazer == false
 	//Desenhar quadrado selecionado nas linhas
 	draw_rectangle(sel_x * tamanho_cel, sel_y * tamanho_cel, sel_x * tamanho_cel + tamanho_cel, sel_y * tamanho_cel + tamanho_cel, false);
 
-	show_debug_message("Celula Selecionada_x: " + string(sel_x))
-	show_debug_message("Celula Selecionada_y: " + string(sel_y))
+	//show_debug_message("Celula Selecionada_x: " + string(sel_x))
+	//show_debug_message("Celula Selecionada_y: " + string(sel_y))
 
 draw_set_color(c_yellow)
 draw_set_alpha(1)

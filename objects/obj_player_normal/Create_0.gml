@@ -92,7 +92,7 @@ function array_limpar(_array, _valor) {
 		    }
 		}
 	}
-	else return show_debug_message("nao tem valor")
+	else return //show_debug_message("nao tem valor")
 	//else //show_message("nao tem valor")
 }
 

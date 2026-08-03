@@ -21,16 +21,25 @@ if ativo
 	
 	
 	//Se ele pode mover
+
+	#region Movimentação
+	
 	if pode_mover
 	{
-		#region Movimentação
-		
 		//Apertei pra cima
 		if _up
 		{
+			//Variaveis
 			pode_mover = false;
 			alarm_set(0,15);
-			if !place_meeting(x,y-32,obj_solido)
+			
+			//Colisão com bloco conector
+			var _col = instance_place(x,y-32,obj_conector)
+			
+			//Colisão com o bloco normal
+			var _col_b = place_meeting(x,y-32,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_up == true))
+			
+			if !_col_b
 			{
 				m_vspd -= move_spd;
 				obj_controler.sel_y--;
@@ -38,14 +47,25 @@ if ativo
 				//Se eu estou me movendo, não ativar
 				if pode_mover == false in_move = true
 				} }
-				
+	}
+	
+	if pode_mover
+	{
 		
 		//Apertei pra baixo
 		if _down
 		{
+			//Variaveis
 			pode_mover = false;
 			alarm_set(0,15);
-			if !place_meeting(x,y+32,obj_solido)
+			
+			//Colisão com bloco conector
+			var _col = instance_place(x,y+32,obj_conector)
+			
+			//Colisão com o bloco normal
+			var _col_b = place_meeting(x,y+32,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_down == true))
+			
+			if !_col_b
 			{
 				m_vspd += move_spd;
 				obj_controler.sel_y++;
@@ -53,14 +73,25 @@ if ativo
 				//Se eu estou me movendo, não ativar
 				if pode_mover == false in_move = true
 				} }
-				
-		
+	}		
+	
+	if pode_mover
+	{	
 		//Apertei pra direita
 		if _right
 		{
+			//Variaveis
 			pode_mover = false;
 			alarm_set(0,15);
-			if !place_meeting(x+32,y,obj_solido)
+			
+			
+			//Colisão com bloco conector
+			var _col = instance_place(x+32,y,obj_conector)
+			
+			//Colisão com o bloco normal
+			var _col_b = place_meeting(x+32,y,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_right == true))
+			
+			if !_col_b
 			{
 				m_hspd += move_spd;
 				obj_controler.sel_x++;
@@ -68,28 +99,43 @@ if ativo
 				//Se eu estou me movendo, não ativar
 				if pode_mover == false in_move = true
 				} }
-		
-		
+	}
+	
+	if pode_mover
+	{
 		//Apertei pra esquerda
 		if _left
 		{
+			//Variaveis
 			pode_mover = false;
 			alarm_set(0,15);
-			if !place_meeting(x-32,y,obj_solido)
+			
+			//Colisão com bloco conector
+			var _col = instance_place(x-32,y,obj_conector)
+			
+			//Colisão com o bloco normal
+			var _col_b = place_meeting(x-32,y,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_left == true))
+			
+			if !_col_b
 			{
 				m_hspd -= move_spd;
 				obj_controler.sel_x--;
+				in_move = true
 				
-				//Se eu estou me movendo, não ativar
-				if pode_mover == false in_move = true
 				} }
-				
-			
-		#endregion
 	}
 	
+	#endregion
+	
 	//Ativar energia dele
-	if keyboard_check_pressed(ord("Q")) energia = !energia; 
+	if keyboard_check_pressed(ord("Q")) 
+	{
+		//Verificar se ele pode andar
+		if in_move == false
+		{
+			energia = !energia;
+		}
+	}
 	
 	//Verficar se o player está energizado
 	if energia
@@ -271,29 +317,46 @@ else
 //Trocar sprite
 sprite_index = (energia == false) ? spr_player : spr_player_energia;
 
-show_debug_message("robos ligados: " + string(robos_em_ligacao))
-show_debug_message("energia: " + string(energia))
+////Verificar se o player chegou
+//if abs(x - m_hspd) < 1 && abs(y - m_vspd) < 1
+//{
+//    in_move = false
+//}
+
+//show_debug_message("robos ligados: " + string(robos_em_ligacao))
+//show_debug_message("energia: " + string(energia))
 
 
-show_debug_message("Energia left: " + string(player_energia._left.energia))
-show_debug_message("Energia left Conectado: " + string(player_energia._left.conectado))
-show_debug_message("ultimo_valor: " + string(player_energia._left.ultimo_valor))
+//show_debug_message("Energia left: " + string(player_energia._left.energia))
+//show_debug_message("Energia left Conectado: " + string(player_energia._left.conectado))
+//show_debug_message("ultimo_valor: " + string(player_energia._left.ultimo_valor))
 
 
-show_debug_message("Energia right: " + string(player_energia._right.energia))
-show_debug_message("Energia right Conectado: " + string(player_energia._right.conectado))
-show_debug_message("ultimo_valor: " + string(player_energia._right.ultimo_valor))
+//show_debug_message("Energia right: " + string(player_energia._right.energia))
+//show_debug_message("Energia right Conectado: " + string(player_energia._right.conectado))
+//show_debug_message("ultimo_valor: " + string(player_energia._right.ultimo_valor))
 
 
-show_debug_message("Energia up: " + string(player_energia._up.energia))
-show_debug_message("Energia up Conectado: " + string(player_energia._up.conectado))
-show_debug_message("ultimo_valor: " + string(player_energia._up.ultimo_valor))
+//show_debug_message("Energia up: " + string(player_energia._up.energia))
+//show_debug_message("Energia up Conectado: " + string(player_energia._up.conectado))
+//show_debug_message("ultimo_valor: " + string(player_energia._up.ultimo_valor))
 
 
-show_debug_message("Energia down: " + string(player_energia._down.energia))
-show_debug_message("Energia down Conectado: " + string(player_energia._down.conectado))
-show_debug_message("ultimo_valor: " + string(player_energia._down.ultimo_valor))
+//show_debug_message("Energia down: " + string(player_energia._down.energia))
+//show_debug_message("Energia down Conectado: " + string(player_energia._down.conectado))
+//show_debug_message("ultimo_valor: " + string(player_energia._down.ultimo_valor))
 
 x = lerp(x,m_hspd,.3);
 y = lerp(y,m_vspd,.3);
 
+//Verifica se já chegou perto o suficiente do alvo
+if abs(x - m_hspd) < 1 && abs(y - m_vspd) < 1
+{
+    //Se ele ainda estava em movimento, agora chegou -> trava certinho na grid
+    if in_move == true
+    {
+        x = m_hspd; //gruda no valor exato, sem sobrar fração
+        y = m_vspd;
+        in_move = false;
+    }
+}

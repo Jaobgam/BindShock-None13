@@ -78,11 +78,11 @@ if (global.player_select == true) global.modo_de_jogo = 1; else global.modo_de_j
 sel_x = clamp(sel_x,0,largura-1)
 sel_y = clamp(sel_y,0,altura-1)
 
-show_debug_message(grid[sel_x][sel_y])
-show_debug_message("player select: " + string(global.player_select))
-show_debug_message("player x: " + string(obj_player_normal.x) + " player y: " + string(obj_player_normal.y))
-show_debug_message("x: " + string(celula_atual_x) + "  x2: " + string(sel_x * tamanho_cel + tamanho_cel))
-show_debug_message("y: " + string(celula_atual_y) + "  y2: " + string(sel_y * tamanho_cel + tamanho_cel))
+//show_debug_message(grid[sel_x][sel_y])
+//show_debug_message("player select: " + string(global.player_select))
+//show_debug_message("player x: " + string(obj_player_normal.x) + " player y: " + string(obj_player_normal.y))
+//show_debug_message("x: " + string(celula_atual_x) + "  x2: " + string(sel_x * tamanho_cel + tamanho_cel))
+//show_debug_message("y: " + string(celula_atual_y) + "  y2: " + string(sel_y * tamanho_cel + tamanho_cel))
 //show_debug_message("sel_x * tamanho_cel: " + string(sel_x * tamanho_cel))
 //show_debug_message("alpha: " + string(alpha))
 
