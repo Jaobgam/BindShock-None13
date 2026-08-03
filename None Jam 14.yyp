@@ -19,10 +19,13 @@
   },
   "name":"None Jam 14",
   "resources":[
+    {"id":{"name":"obj_conector","path":"objects/obj_conector/obj_conector.yy",},},
     {"id":{"name":"obj_controler","path":"objects/obj_controler/obj_controler.yy",},},
     {"id":{"name":"obj_player_normal","path":"objects/obj_player_normal/obj_player_normal.yy",},},
     {"id":{"name":"obj_solido","path":"objects/obj_solido/obj_solido.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"spr_objeto_conector","path":"sprites/spr_objeto_conector/spr_objeto_conector.yy",},},
+    {"id":{"name":"spr_player_energia","path":"sprites/spr_player_energia/spr_player_energia.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_solido","path":"sprites/spr_solido/spr_solido.yy",},},
   ],

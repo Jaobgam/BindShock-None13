@@ -11,7 +11,7 @@ global.player_select = false
 //Vamos criar nossa grid
 largura		= 16;	//Horizontal
 altura		= 9;	//Vertical
-tamanho_cel = 32;
+tamanho_cel = 64;
 
 numb = 0;
 gay = false;
