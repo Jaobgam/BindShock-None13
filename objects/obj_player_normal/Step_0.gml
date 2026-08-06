@@ -15,6 +15,7 @@ if ativo
 
 	#region Movimentação
 	
+	/*
 	if pode_mover
 	{
 		//Apertei pra cima
@@ -90,29 +91,42 @@ if ativo
 				obj_controler.sel_x++;
 				in_move = true
 				} }
-	}
+	}*/
 	
 	if pode_mover
 	{
-		//Apertei pra esquerda
-		if _left
+		if (_right && pode_mover_bloco(32, 0, "travado_right"))
 		{
-			//Variaveis
 			pode_mover = false;
 			alarm_set(0,15);
-			
-			//Colisão com bloco conector
-			var _col = instance_place(x-32,y,obj_conector)
-			
-			//Colisão com o bloco normal
-			var _col_b = place_meeting(x-32,y,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_left == true))
-			
-			if !_col_b
-			{
-				m_hspd -= move_spd;
-				obj_controler.sel_x--;
-				in_move = true
-				} }
+			m_hspd += move_spd;
+			obj_controler.sel_x++;
+			in_move = true;
+		}
+		else if (_left && pode_mover_bloco(-32, 0, "travado_left"))
+		{
+			pode_mover = false;
+			alarm_set(0,15);
+			m_hspd -= move_spd;
+			obj_controler.sel_x--;
+			in_move = true;
+		}
+		else if (_up && pode_mover_bloco(0, -32, "travado_up"))
+		{
+			pode_mover = false;
+			alarm_set(0,15);
+			m_vspd -= move_spd;
+			obj_controler.sel_y--;
+			in_move = true;
+		}
+		else if (_down && pode_mover_bloco(0, 32, "travado_down"))
+		{
+			pode_mover = false;
+			alarm_set(0,15);
+			m_vspd += move_spd;
+			obj_controler.sel_y++;
+			in_move = true;
+		}
 	}
 	
 	#endregion

@@ -109,5 +109,40 @@ function array_limpar(_array, _valor) {
 	//else //show_message("nao tem valor")
 }
 
+//Pode mover bloco e nao so player
+function pode_mover_bloco(_dx, _dy, _travado_var)
+{
+	var _pode = true;
+	
+	//Checagem do player
+	if (place_meeting(x + _dx, y + _dy, obj_solido)) return false;
+	
+	var _col = instance_place(x + _dx, y + _dy, obj_conector);
+	if (_col != noone && (_col.ligado == false || variable_instance_get(_col, _travado_var)))
+	{
+		return false;
+	}
+	
+	//Checagem de todos os blocos conectados na cadeia
+	with (obj_conector)
+	{
+		if (colisao != "Nenhum")
+		{
+			if (place_meeting(x + _dx, y + _dy, obj_solido))
+			{
+				other._pode = false;
+			}
+			
+			var _col2 = instance_place(x + _dx, y + _dy, obj_conector);
+			if (_col2 != noone && _col2 != id && (_col2.ligado == false || variable_instance_get(_col2, _travado_var)))
+			{
+				other._pode = false;
+			}
+		}
+	}
+	
+	return _pode;
+}
+
 //Função para verificar se ouve colisão
 

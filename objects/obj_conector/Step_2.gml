@@ -24,34 +24,31 @@ if (ligado)
 	var _dx = _alvo.x - _alvo.xprevious
 	var _dy = _alvo.y - _alvo.yprevious
 	
+	//Se começou a mover
+	var _comecou_mover = (_parado && (_dx != 0 || _dy != 0));
+
 	//Se o movimento for 0 então não há movimento
 	_parado = (_dx == 0 && _dy == 0);
 	
-	//Verificar se ele pode ir pra baixo
-	//Ele esta indo pra baixo,
-	var _pode_y = !place_meeting(x, y + _dy, obj_solido)
-	var _pode_x = !place_meeting(x + _dx, y, obj_solido)
-	
-	var _pode_x2 = 1
-	var _pode_y2 = 1
-		
-	if colisao == "Player"
+	//Vou decidir se no proximo bloco ele vai mover ou não
+	if (_comecou_mover)
 	{
-		if _parado
-		{
-			_pode_x2 = !place_meeting(x + _dx, y, obj_conector)
-			_pode_y2 = !place_meeting(x, y + _dy, obj_conector)
-		}
+		//Ele vai sentir a colisão do proxiimo bloco, sentido a colisão ele vai travar pra não andar
+		if (_dx > 0) seguir_x = !place_meeting(x+32, y, obj_solido) && !travado_right;
+		else if (_dx < 0) seguir_x = !place_meeting(x-32, y, obj_solido) && !travado_left;
+		else seguir_x = true;
 		
-		if (_pode_x && _pode_x2) x += _dx
-		if (_pode_y && _pode_y2) y += _dy
+		//Mas ele vai continuar o caminho até parar, ai sim vai adnar
+		if (_dy > 0) seguir_y = !place_meeting(x, y+32, obj_solido) && !travado_down;
+		else if (_dy < 0) seguir_y = !place_meeting(x, y-32, obj_solido) && !travado_up;
+		else seguir_y = true;
 	}
 	
 	//Sou um bloco desligado, que ficou ligado porque outro bloco com o player, colidiu comigo
-	if (colisao == "Bloco")
+	if (colisao != "Nenhum")
 	{
-		if (_pode_x) x += _dx
-		if (_pode_y) y += _dy		
+		if (seguir_x) x += _dx;
+		if (seguir_y) y += _dy;
 	}
 	
 	
@@ -77,6 +74,10 @@ else
 	
 	//Resetar bloco
 	bloco = [];
+
+	//Reseta pro próximo ciclo de movimento
+	seguir_x = true;
+	seguir_y = true;
 	
 //
 }

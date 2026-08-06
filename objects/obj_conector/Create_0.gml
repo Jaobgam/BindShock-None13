@@ -31,6 +31,10 @@ _col_right	= 0;
 _col_up		= 0;
 _col_down	= 0;
 
+//Se vai seguir ou não
+seguir_x = true;
+seguir_y = true;
+
 //Ligado sprite
 ligado_spr = false
 
