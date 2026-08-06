@@ -1,10 +1,27 @@
-//Colisão na direita COM O PLAYER
-var _col_left	= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_player_normal,false,false)
-var _col_right	= collision_rectangle(x + sprite_width,y+5,x + sprite_height + 20,(y + sprite_height)-5,obj_player_normal,false,false)
-var _col_up		= collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,obj_player_normal,false,false)
-var _col_down	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_player_normal,false,false)
-	
-//Verificar colisão direita
+//Colisão Esquerda
+_col_left_solid		= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_solido,false,false)
+_col_left_conect	= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_conector,false,false)
+
+//Colisão Direita
+_col_right_solid	= collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,obj_solido,false,false)
+_col_right_conect	= collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,obj_conector,false,false)
+
+//Colisão Cima
+_col_up_solid		= collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,obj_solido,false,false)
+_col_up_conect		= collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,obj_conector,false,false)
+
+//Colisão Baixo
+_col_down_solid		= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_solido,false,false)
+_col_down_conect	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_conector,false,false)
+
+
+//Colisão COM O PLAYER
+_col_left	= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_player_normal,false,false)
+_col_right	= collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,obj_player_normal,false,false)
+_col_up		= collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,obj_player_normal,false,false)
+_col_down	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_player_normal,false,false)
+
+//Verificar com o player
 if	_col_right && 
 	_col_right.energia == true &&
 	_col_right.in_move == false &&
@@ -24,53 +41,184 @@ if	_col_right &&
 {
 	ligado = true;
 	desliga_time = 0;
+	colisao = "Player";
+	fonte_lado = "Player";
+	
+	ligado_spr = true;
 } 
 else 
 {
-	//Se ele estiver parado
 	if _parado == true
 	{
-		ligado = false;	
+		ligado = false;
 	}
-	/*
-		BLOCO COLIDIU COM O PLAYER, SE MOVIMENTOU JUNTO COM O PLAYER, DURANTE O MOVIMENTO, ELE VEM PRA CA PORQUE PRA ELE A MOVIMENTAÇÃO PAROU
-		ENTÃO SE EM 20 FRAMES ELE NÃO TERMINOU A MOVIMENTAÇÃO
-	
-	/*
-	//Se ele está se movendo
-	//Ele vai desligar rapido se por acaso estiver ccolidindo
-	//Se ele estiver ligado
-	if (ligado)
-	{
-		//Ele so vai desligar se depois de alguns segundos o tempo acabar
-		desliga_time++
-	
-		//Se o tempo acccacbar (largou de vez)
-		if desliga_time >= desliga_time_max {
-			//Se o player não esta se movendo[
-			if player_move == false
-			{
-				//Desligar de vez
-				ligado = false;
-				desliga_time = 0;
-			}
-		}
-	}*/
 }
 
-//Colisão com bloco solido
-//Retornar verdadeiro ou falso
-//Se noone == noone enntão retorna falso
-//Se 32988 != noone então retorna verdadeiro
-var _col_left_solid		= (collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5, obj_solido,false,false) != noone) ||	(collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5, obj_conector,false,false) != noone)
-var _col_right_solid	= (collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,	obj_solido,false,false) != noone)	||	(collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,	obj_conector,false,false) != noone)
-var _col_up_solid		= (collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,									obj_solido,false,false) != noone)	||	(collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,									obj_conector,false,false) != noone)
-var _col_down_solid		= (collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,	obj_solido,false,false) != noone)	||	(collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,	obj_conector,false,false) != noone)
 
-travado_left = _col_left_solid
-travado_right = _col_right_solid
-travado_up = _col_up_solid
-travado_down = _col_down_solid
+
+
+
+//travado_left	=	(_col_left_solid	||	_col_left_conect)
+//Verificar esquerda
+//if (_col_left_conect != noone) {if (_col_left_conect.ligado == false) {_col_right_conect = 1} else {_col_right_conect = 0}}
+
 	
-//	show_debug_message(player_move)
+//travado_right		=	(_col_right_solid		||	_col_right_conect)
+//travado_left	=	(_col_left_solid	||	_col_left_conect.ligado == true)
+
+//Esquerda
+travado_left =
+    (_col_left_solid != noone) ||
+    (_col_left_conect != noone && (!_col_left_conect.ligado || _col_left_conect._col_left_solid != noone || _col_left_conect.travado_left == 1));
+	
+//Direita
+travado_right =	
+	(_col_right_solid != noone) ||
+	(_col_right_conect != noone && (!_col_right_conect.ligado || _col_right_conect._col_right_solid != noone || _col_right_conect.travado_right == 1));
+
+//Baixo
+travado_down =	
+	(_col_down_solid != noone) ||
+	(_col_down_conect != noone && (!_col_down_conect.ligado || _col_down_conect._col_down_solid != noone || _col_down_conect.travado_down == 1));
+
+//Cima
+travado_up =	
+	(_col_up_solid != noone) ||
+	(_col_up_conect != noone && (!_col_up_conect.ligado || _col_up_conect._col_up_solid != noone || _col_up_conect.travado_up == 1));
+
+
+//travado_up		=	(_col_up_solid		||	_col_up_conect)
+//travado_down	=	(_col_down_solid	||	_col_down_conect)
+
+//show_debug_message("travado left: " + string(travado_left))
+//show_debug_message("travado right: " + string(travado_right))
+//show_debug_message("travado up: " + string(travado_up))
+//show_debug_message("travado down: " + string(travado_down))
+
+
+//Beleza vamos lá, Agora se EU sou um bloco normal e eu colidir com um bloco ligado, e colidido com o player
+
+
+//Tenho uma colisão na minha direita
+if (_col_right_conect != noone && 
+	_col_right_conect.energia_qnt >= 1 && 
+	_col_right_conect._parado == true && 
+	_col_right_conect.ligado == true && 
+	at_direita && 
+	_col_right_conect.at_esquerda && 
+	_col_right_conect.fonte_lado != "Esquerda")
+{
+	//O outro bloco vai ganhar energia também
+	ligado = true;
+	desliga_time = 0;
+	colisao = "Bloco" //Colisão Bloco
+	fonte_lado = "Direita" //Fonte de energia vem da direita
+	ligado_spr = true;
+}
+else if (_col_left_conect != noone && 
+	_col_left_conect.energia_qnt >= 1 && 
+	_col_left_conect._parado == true &&
+	_col_left_conect.ligado == true &&
+	at_esquerda &&
+	_col_left_conect.at_direita &&
+	_col_left_conect.fonte_lado != "Direita")
+{
+	ligado = true;
+	colisao = "Bloco";
+	fonte_lado = "Esquerda"
+	desliga_time = 0;
+	ligado_spr = true;
+}
+else if (_col_up_conect != noone && 
+	_col_up_conect.energia_qnt >= 1 && 
+	_col_up_conect._parado == true &&
+	_col_up_conect.ligado == true &&
+	at_cima &&
+	_col_up_conect.at_baixo &&
+	_col_up_conect.fonte_lado != "Baixo")
+{
+	ligado = true;
+	colisao = "Bloco";
+	fonte_lado = "Cima"
+	desliga_time = 0;
+	ligado_spr = true;
+}
+else if (_col_down_conect != noone && 
+	_col_down_conect.energia_qnt >= 1 && 
+	_col_down_conect._parado == true &&
+	_col_down_conect.ligado == true &&
+	at_baixo &&
+	_col_down_conect.at_cima &&
+	_col_down_conect.fonte_lado != "Cima")
+{
+	ligado = true;
+	colisao = "Bloco";
+	fonte_lado = "Baixo"
+	desliga_time = 0;
+	ligado_spr = true;
+}
+/*
+
+//Se eu tenho uma colisão na minha esquerda
+if (_col_left_conect && _col_left_conect.energia_qnt >= 1 && _col_left_conect._parado == true)
+{
+	//O outro bloco vai ganhar energia também
+	ligado = true
+	//Adicionar meu id nesse bloco
+	if adicionar == false {array_push(_col_left_conect.bloco,id); adicionar = true}
+	//Colisão Bloco
+	colisao = "Bloco"
+}
+
+//Vai travar na direita se, tiver colidindo com um bloco solido, se o bloco conecct estiver desligado e se o bloco conec
+
+
+
+
+
+
+
+/
+#region Colisão com Bloco
+
+	//Direita
+	if (_gol_right && _gol_right.ligado)	&&
+		_gol_right.energia_qnt >= 1			&&
+		obj_player_normal.in_move == false	&&
+		at_direita
+	{
+		show_debug_message("colidindo")
+	
+		colisao = "Bloco";
+		ligado = true;
+		travado_right = false;
+	}
+	else if _gol_right && (!_gol_right.ligado || _gol_right.energia_qnt <= 1)
+	{
+		travado_right = true;
+	}
+
+
+	//Esquerda
+	if (_gol_left && _gol_left.ligado)	&&
+		_gol_left.energia_qnt >= 1			&&
+		obj_player_normal.in_move == false	&&
+		at_esquerda
+	{
+		show_debug_message("colidindo")
+	
+		colisao = "Bloco";
+		ligado = true;
+		travado_left = false;
+	}
+	else if _gol_left && (!_gol_left.ligado || _gol_left.energia_qnt <= 1)
+	{
+		travado_left = true;
+	}
+
+#endregion
+	/*/
+	
+//show_debug_message("Energia quantidade: " + string(energia_qnt))
+//("Colisao com: " + string(colisao))
 

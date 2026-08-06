@@ -19,6 +19,13 @@ in_move = false
 m_hspd = x;
 m_vspd = y;
 
+//Colisão com bloco
+_col_left	= 0;
+_col_right	= 0;
+_col_up		= 0;
+_col_down	= 0;
+
+
 //Todos os robos conectados
 robo_conectado = false	//Se o robo está conectado a outro robo
 robos_em_ligacao = []	//Todos os robos que estão conectados ao principal
@@ -26,35 +33,41 @@ robos_em_ligacao = []	//Todos os robos que estão conectados ao principal
 //O player vai ter energia pra cada lado
 player_energia = 
 {
+	//Quantidade de energia
+	energia_qnt : 2,
+	
+	
 	//Energia que o player vai ter pra cada lado
 	_left : 
 	{
-		energia : 1,
+		//energia : 1,
 		conectado : [],
 		ultimo_valor : noone
 	},
 	
 	_right :
 	{
-		energia : 1,
+		//energia : 1,
 		conectado : [],
 		ultimo_valor : noone
 	},
 	
 	_up :
 	{
-		energia : 1,
+		//energia : 1,
 		conectado : [],
 		ultimo_valor : noone
 	},
 	
 	_down : 
 	{
-		energia : 1,
+		//energia : 1,
 		conectado : [],
 		ultimo_valor : noone
-	}
+	},
 }
+
+
 
 
 //Função para verificar se dentro da array existe o valor

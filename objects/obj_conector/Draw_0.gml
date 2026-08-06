@@ -5,14 +5,15 @@ draw_set_colour(c_olive)
 draw_set_alpha(.4)
 //Check da esquerda
 draw_rectangle(x,y+5,x - 20,(y + sprite_height)-5,false)
-//Check da direita
-draw_rectangle(x + sprite_width,y+5,x + sprite_height + 20,(y + sprite_height)-5,false)
+Check da direita
+
 //Check de cima/
 draw_rectangle(x+5,y,(x + sprite_width)-5,y - 20, false)*/
-/*
-//Check de baixo
-draw_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20, false)
 
+//Check de baixo
+//draw_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5, false)
+//draw_rectangle(x,y+5,x - 20,(y + sprite_height)-5, false)
+/*
 
 
 draw_set_color(c_blue)

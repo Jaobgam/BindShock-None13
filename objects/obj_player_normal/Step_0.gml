@@ -10,16 +10,7 @@ _right = keyboard_check(vk_right)
 
 //Se o player estiver selecionado ele pode se mvoer
 if ativo
-{
-	//Ele vai se adicionar no cconecctado
-	//Se ele não estiver sido adicionado
-	if !array_contains(robos_em_ligacao,id)
-	{
-		//Se adicionar
-		array_insert(robos_em_ligacao,0,id)		
-	}
-	
-	
+{	
 	//Se ele pode mover
 
 	#region Movimentação
@@ -91,13 +82,13 @@ if ativo
 			//Colisão com o bloco normal
 			var _col_b = place_meeting(x+32,y,obj_solido) || (_col != noone && (_col.ligado == false || _col.travado_right == true))
 			
+			show_debug_message("_colb: " +string(_col_b))
+			
 			if !_col_b
 			{
 				m_hspd += move_spd;
 				obj_controler.sel_x++;
-				
-				//Se eu estou me movendo, não ativar
-				if pode_mover == false in_move = true
+				in_move = true
 				} }
 	}
 	
@@ -121,7 +112,6 @@ if ativo
 				m_hspd -= move_spd;
 				obj_controler.sel_x--;
 				in_move = true
-				
 				} }
 	}
 	
@@ -140,20 +130,28 @@ if ativo
 	//Verficar se o player está energizado
 	if energia
 	{
+		//Gasto de energia vai ser 1
+		player_energia.energia_gasto = 1;
+		
+		//Ele vai se adicionar no cconecctado se ele estiver ligado
+		//Se ele não estiver sido adicionado
+		if !array_contains(robos_em_ligacao,id)
+		{
+			//Se adicionar
+			array_insert(robos_em_ligacao,0,id)		
+		}
+	
 		//Se ele estiver energizado
 		//Vamos verificar se ele vai colidir com alguém
 		//Colisão na esquerda
-		var _col_left = collision_rectangle(x,y,x - 20,y + sprite_height,obj_conector,false,false)
-		var _col_right = collision_rectangle(x + sprite_width,y,x + sprite_height + 20,y + sprite_height,obj_conector,false,false)
-		var _col_up = collision_rectangle(x,y,x + sprite_width,y - 20,obj_conector,false,false)
-		var _col_down = collision_rectangle(x,y + sprite_height,x + sprite_width,y + sprite_height + 20,obj_conector,false,false)
+		_col_left	= collision_rectangle(x,y,x - 20,y + sprite_height,obj_conector,false,false)
+		_col_right	= collision_rectangle(x + sprite_width,y,x + sprite_height + 20,y + sprite_height,obj_conector,false,false)
+		_col_up		= collision_rectangle(x,y,x + sprite_width,y - 20,obj_conector,false,false)
+		_col_down	= collision_rectangle(x,y + sprite_height,x + sprite_width,y + sprite_height + 20,obj_conector,false,false)
 		
 		//Colisão na esquerda
 		if _col_left
-		{
-			//Tirar energia da esquerda
-			player_energia._left.energia = 0;
-			
+		{	
 			//So vai adicionar se o valor nao tiver dentro
 			if !array_contem_valor(player_energia._left.conectado,_col_left)
 			{
@@ -176,11 +174,12 @@ if ativo
 				//Atualizar ultimo valor
 				player_energia._left.ultimo_valor = _col_left.id
 				
+
 			} 
 			
 		} else {
 			//if (player_energia._left.ultimo_valor != noone) {player_energia._left.ultimo_valor.ligado = false;}
-			player_energia._left.energia = 1; 
+			//player_energia._left.energia += 1; 
 			array_limpar(player_energia._left.conectado,player_energia._left.ultimo_valor); 
 			player_energia._left.ultimo_valor = noone;
 		}
@@ -190,7 +189,7 @@ if ativo
 		if _col_right
 		{
 			//Tirar energia da direita
-			player_energia._right.energia = 0;
+			//player_energia._right.energia = 0;
 			
 			//So vai adicionar se o valor nao tiver dentro
 			if !array_contem_valor(player_energia._right.conectado,_col_right)
@@ -210,7 +209,7 @@ if ativo
 			} 
 			
 		} else {
-			player_energia._right.energia = 1; 
+			//player_energia._right.energia = 1; 
 			array_limpar(player_energia._right.conectado,player_energia._right.ultimo_valor); 
 			player_energia._right.ultimo_valor = noone;
 		}
@@ -220,7 +219,7 @@ if ativo
 		if _col_up
 		{
 			//Tirar energia de cima
-			player_energia._up.energia = 0;
+			//player_energia._up.energia = 0;
 			
 			//So vai adicionar se o valor nao tiver dentro
 			if !array_contem_valor(player_energia._up.conectado,_col_up)
@@ -266,7 +265,7 @@ if ativo
 			}
 		} else {player_energia._down.energia = 1; array_limpar(player_energia._down.conectado,player_energia._down.ultimo_valor); player_energia._down.ultimo_valor = noone;}
 		
-		//energia = clamp(energia,0,1)
+		//energia = clamp(energia,0,1)		
 	}
 	else
 	{
@@ -294,6 +293,9 @@ if ativo
 		player_energia._down.conectado = [];
 		if (player_energia._down.ultimo_valor != noone) {player_energia._down.ultimo_valor.ligado = false;}
 		player_energia._down.ultimo_valor = noone;
+		
+		//Gasto de energia
+		player_energia.energia_gasto = 0;
 	}
 
 }
@@ -302,7 +304,7 @@ else
 	//Se o robo estiver desativado
 	//Verificar se ele está ligado ccom outro robo
 	//Se ele nao estiver ligado com outro robo
-	if !robo_conectado
+	if !energia
 	{
 		//Verificar se tem algo na array
 		if array_contains(robos_em_ligacao,id)
@@ -323,10 +325,13 @@ sprite_index = (energia == false) ? spr_player : spr_player_energia;
 //    in_move = false
 //}
 
-//show_debug_message("robos ligados: " + string(robos_em_ligacao))
-//show_debug_message("energia: " + string(energia))
-
-
+//
+//
+//show_debug_message("Conectado: " + string(player_energia._left.conectado))
+		//show_debug_message("robos ligados: " + string(robos_em_ligacao))
+		//show_debug_message("energia: " + string(energia))
+		//show_debug_message("left.energia: " + string(player_energia._left.energia))
+		//show_debug_message("player_energia.energia_gasto: " + string(player_energia.energia_gasto))
 //show_debug_message("Energia left: " + string(player_energia._left.energia))
 //show_debug_message("Energia left Conectado: " + string(player_energia._left.conectado))
 //show_debug_message("ultimo_valor: " + string(player_energia._left.ultimo_valor))
