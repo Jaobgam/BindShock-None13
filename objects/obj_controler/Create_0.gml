@@ -110,6 +110,15 @@ modo_tutorial_dica_feito = false;
 
 entrar = false
 
+//Dica de reniciar
+global.dica_reiniciar = false;
+dica_alpha = .4;
+_xscale = 1;
+_yscale = 1;
+contage_reinicio = 0;
+reinicio_delay = 110; //So vai poder reiniciar depois que acabar isso 
+reinicio_pause = true; //Não vai poder reniciar durante a transição pra passar de level
+
 //Configurar status de todos os leveis
 global.leveis = 
 {

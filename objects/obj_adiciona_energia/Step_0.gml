@@ -8,7 +8,7 @@ if _inst
 	&& _inst.energia
 	&& todos_ativos()
 {
-	show_debug_message(todos_ativos())
+	//show_debug_message(todos_ativos())
 	//Abrir porta para o proximo level
 	global.abrir_level = true
 	//show_message("ativo")

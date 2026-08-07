@@ -24,6 +24,14 @@ if (ligado)
 	
 	//Player movimento
 	
+	
+		//if colisao == "Bloco"
+		//{
+		//	show_debug_message(travado_left)
+		//	show_debug_message(travado_right)
+		//	show_debug_message(travado_down)
+		//	show_debug_message(travado_up)
+		//}
 		
 	//Movimento do player
 	var _dx = _alvo.x - _alvo.xprevious

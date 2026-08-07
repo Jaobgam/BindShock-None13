@@ -46,8 +46,9 @@ if	_col_right &&
 	_col_down &&
 	_col_down.energia == true &&
 	_col_down.in_move == false &&
-	at_baixo //Pode ativar embaixo
+	at_baixo//Pode ativar embaixo
 {
+	//show_debug_message("teste: " + string(id))
 	ligado = true;
 	desliga_time = 0;
 	colisao = "Player";
@@ -95,7 +96,7 @@ travado_up =
 	(_col_up_solid != noone) ||
 	(_col_up_conect != noone && (!_col_up_conect.ligado || _col_up_conect._col_up_solid != noone || _col_up_conect.travado_up == 1));
 
-if _col_player == noone show_debug_message(_col_player)
+//if _col_player == noone show_debug_message(_col_player)
 //travado_up		=	(_col_up_solid		||	_col_up_conect)
 //travado_down	=	(_col_down_solid	||	_col_down_conect)
 
@@ -106,69 +107,76 @@ if _col_player == noone show_debug_message(_col_player)
 
 
 //Beleza vamos lá, Agora se EU sou um bloco normal e eu colidir com um bloco ligado, e colidido com o player
-
+/*show_debug_message(
+	string(id) +
+	" col_down: " + string(_col_down != noone) +
+	" energia: " + string(_col_down != noone ? _col_down.energia : -1) +
+	" in_move: " + string(_col_down != noone ? _col_down.in_move : -1) +
+	" at_baixo: " + string(at_baixo) +
+	" _parado: " + string(_parado) +
+	" ligado: " + string(ligado)
+)*/
 
 //Tenho uma colisão na minha direita
+//Direita
 if (_col_right_conect != noone && 
-	_col_right_conect.energia_qnt >= 1 && 
-	_col_right_conect._parado == true && 
-	_col_right_conect.ligado == true && 
+	_col_right_conect.colisao != "Nenhum" && 
 	at_direita && 
 	_col_right_conect.at_esquerda && 
-	_col_right_conect.fonte_lado != "Esquerda")
+	_col_right_conect.fonte_lado != "Esquerda" &&
+	(colisao == "Bloco" || _col_right_conect._parado))
 {
-	//O outro bloco vai ganhar energia também
 	ligado = true;
 	desliga_time = 0;
-	colisao = "Bloco" //Colisão Bloco
-	fonte_lado = "Direita" //Fonte de energia vem da direita
+	colisao = "Bloco";
+	fonte_lado = "Direita";
 	ligado_spr = true;
-	_col_player = _col_right_conect._col_player
+	_col_player = _col_right_conect._col_player;
 }
+//Esquerda
 else if (_col_left_conect != noone && 
-	_col_left_conect.energia_qnt >= 1 && 
-	_col_left_conect._parado == true &&
-	_col_left_conect.ligado == true &&
+	_col_left_conect.colisao != "Nenhum" &&
 	at_esquerda &&
 	_col_left_conect.at_direita &&
-	_col_left_conect.fonte_lado != "Direita")
+	_col_left_conect.fonte_lado != "Direita" &&
+	(colisao == "Bloco" || _col_left_conect._parado))
 {
 	ligado = true;
 	colisao = "Bloco";
-	fonte_lado = "Esquerda"
+	fonte_lado = "Esquerda";
 	desliga_time = 0;
 	ligado_spr = true;
-	_col_player = _col_left_conect._col_player
+	_col_player = _col_left_conect._col_player;
 }
+//Cima
 else if (_col_up_conect != noone && 
-	_col_up_conect.energia_qnt >= 1 && 
-	_col_up_conect._parado == true &&
-	_col_up_conect.ligado == true &&
+	_col_up_conect.colisao != "Nenhum" &&
 	at_cima &&
 	_col_up_conect.at_baixo &&
-	_col_up_conect.fonte_lado != "Baixo")
+	_col_up_conect.fonte_lado != "Baixo" &&
+	(colisao == "Bloco" || _col_up_conect._parado))
 {
 	ligado = true;
 	colisao = "Bloco";
-	fonte_lado = "Cima"
+	fonte_lado = "Cima";
 	desliga_time = 0;
 	ligado_spr = true;
-	_col_player = _col_up_conect._col_player
+	_col_player = _col_up_conect._col_player;
 }
+//Baixo
 else if (_col_down_conect != noone && 
-	_col_down_conect.energia_qnt >= 1 && 
-	_col_down_conect._parado == true &&
-	_col_down_conect.ligado == true &&
+	_col_down_conect.colisao != "Nenhum" &&
 	at_baixo &&
 	_col_down_conect.at_cima &&
-	_col_down_conect.fonte_lado != "Cima")
+	_col_down_conect.fonte_lado != "Cima" &&
+	(colisao == "Bloco" || _col_down_conect._parado))
 {
 	ligado = true;
 	colisao = "Bloco";
-	fonte_lado = "Baixo"
+	fonte_lado = "Baixo";
 	desliga_time = 0;
 	ligado_spr = true;
-	_col_player = _col_down_conect._col_player
+	_col_player = _col_down_conect._col_player;
 }
 /*
 
@@ -188,7 +196,7 @@ if (_col_left_conect && _col_left_conect.energia_qnt >= 1 && _col_left_conect._p
 
 
 
-
+show_debug_message(string(id) + " colisao final: " + colisao + " fonte: " + fonte_lado)
 
 
 /

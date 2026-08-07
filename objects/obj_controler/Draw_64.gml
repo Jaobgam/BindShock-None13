@@ -81,6 +81,24 @@ if (global.modo_tutorial)
 	//show_debug_message(modo_tutorial_alpha)
 }
 
+//Dica de reiniciar
+draw_set_alpha(dica_alpha)
 
 
+if global.dica_reiniciar
+{
+	//Pegar valor da room
+	var _gui_w = display_get_gui_width() * .78
+	var _gui_h = display_get_gui_height() * .09
+	draw_set_valign(fa_middle)
+	draw_set_halign(fa_center)
+	
+	draw_text_transformed(_gui_w,_gui_h,"Pressione P para reiniciar.",_xscale,_yscale,1)
+	
+	draw_set_valign(-1)
+	draw_set_halign(-1)
+}
+
+
+draw_set_alpha(1)
 draw_set_colour(c_white)

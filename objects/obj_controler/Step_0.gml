@@ -4,6 +4,8 @@ if room == RoomLevel_1 {global.modo_tutorial = true} else {global.modo_tutorial 
 
 
 
+if !instance_exists(obj_player_normal) exit;
+
 //Mexer a celula
 if (global.player_select == false)
 {
@@ -39,7 +41,7 @@ else
 	
 	desfazer = true;
 }
-show_debug_message(global.ativadores)
+//show_debug_message(global.ativadores)
 //Se eu pressionei enter em cima do player, mover ele
 if (keyboard_check_pressed(vk_enter))
 {
@@ -69,6 +71,11 @@ if (keyboard_check_pressed(vk_enter))
 			case RoomLevel_3: transicao(RoomLevel_4) break;
 			case RoomLevel_4: transicao(RoomLevel_5) break;
 			case RoomLevel_5: transicao(RoomLevel_6) break;
+			case RoomLevel_6: transicao(RoomLevel_7) break;
+			case RoomLevel_7: transicao(RoomLevel_8) break;
+			case RoomLevel_8: transicao(RoomLevel_9) break;
+			case RoomLevel_9: transicao(RoomLevel_10) break;
+			case RoomLevel_10: transicao(RoomFinalAgradecimentos) break;
 		}
 		
 		//Se desfzer
@@ -77,6 +84,7 @@ if (keyboard_check_pressed(vk_enter))
 		//Editar Pos
 		//sel_x = 9;
 		//sel_y = 2;
+		reinicio_pause = true;
 		
 
 	}
@@ -108,8 +116,43 @@ if (keyboard_check_pressed(vk_escape) && global.player_select == true)
 	global.player_select = false;
 }
 
+if (keyboard_check(ord("P")))
+{
+	contage_reinicio++;
+	_xscale = lerp(_xscale,1.4,.08)
+	_yscale = lerp(_yscale,1.4,.08)
+	dica_alpha = lerp(dica_alpha,1,.08)
+}
+else if (!keyboard_check(ord("P")))
+{
+	_xscale = lerp(_xscale,1,.08)
+	_yscale = lerp(_yscale,1,.08)
+	dica_alpha = lerp(dica_alpha,.4,.08)
+	contage_reinicio = 0;
+}
+
+//sE CONTAGEM reinicio for 60, reiniciar o level
+if (contage_reinicio >= 60 && reinicio_delay <= 0)
+{
+	//Reiniciar o level
+	transicao(room);
 	
+	//show_message("reinicado")
+	//Limpar array
+	global.ativadores = [];
 	
+	//Se desfzer
+	global.player_select = true;
+		
+}
+
+
+reinicio_delay--;
+
+reinicio_delay = clamp(reinicio_delay,0,110)
+
+//show_debug_message(reinicio_delay)
+
 if (global.player_select == true) global.modo_de_jogo = 1; else global.modo_de_jogo = 0;
 
 

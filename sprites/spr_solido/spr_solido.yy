@@ -19,14 +19,15 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"8f5c876a-19a4-44ae-93e6-61213f474a81","blendMode":0,"displayName":"default","isLocked":false,"name":"8f5c876a-19a4-44ae-93e6-61213f474a81","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"3b9d440f-b406-41ad-932b-6ef8fbe7466d","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"3b9d440f-b406-41ad-932b-6ef8fbe7466d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8f5c876a-19a4-44ae-93e6-61213f474a81","blendMode":0,"displayName":"default","isLocked":false,"name":"8f5c876a-19a4-44ae-93e6-61213f474a81","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
   ],
   "name":"spr_solido",
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Sprites feios",
+    "path":"folders/Sprites feios.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

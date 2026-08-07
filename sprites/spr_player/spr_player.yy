@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Sprites feios",
+    "path":"folders/Sprites feios.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

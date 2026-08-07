@@ -176,7 +176,7 @@ if ativo
 				if player_energia._left.ultimo_valor != noone
 				{
 					//Atualizar valor antes de limpar
-					player_energia._left.ultimo_valor.ligado = false;
+					//player_energia._left.ultimo_valor.ligado = false;
 					
 					//Limpar ultimo valor antes de atualizar para o proximo
 					array_limpar(player_energia._left.conectado,player_energia._left.ultimo_valor);
@@ -287,25 +287,25 @@ if ativo
 		//Esquerda
 		player_energia._left.energia = 1;
 		player_energia._left.conectado = [];
-		if (player_energia._left.ultimo_valor != noone) {player_energia._left.ultimo_valor.ligado = false;}
+		//if (player_energia._left.ultimo_valor != noone) {player_energia._left.ultimo_valor.ligado = false;}
 		player_energia._left.ultimo_valor = noone;
 		
 		//Direita
 		player_energia._right.energia = 1;
 		player_energia._right.conectado = [];
-		if (player_energia._right.ultimo_valor != noone) {player_energia._right.ultimo_valor.ligado = false;}
+		//if (player_energia._right.ultimo_valor != noone) {player_energia._right.ultimo_valor.ligado = false;}
 		player_energia._right.ultimo_valor = noone;
 		
 		//Cima
 		player_energia._up.energia = 1;
 		player_energia._up.conectado = [];
-		if (player_energia._up.ultimo_valor != noone) {player_energia._up.ultimo_valor.ligado = false;}
+		//if (player_energia._up.ultimo_valor != noone) {player_energia._up.ultimo_valor.ligado = false;}
 		player_energia._up.ultimo_valor = noone;
 		
 		//Baixo
 		player_energia._down.energia = 1;
 		player_energia._down.conectado = [];
-		if (player_energia._down.ultimo_valor != noone) {player_energia._down.ultimo_valor.ligado = false;}
+		//f (player_energia._down.ultimo_valor != noone) {player_energia._down.ultimo_valor.ligado = false;}
 		player_energia._down.ultimo_valor = noone;
 		
 		//Gasto de energia
