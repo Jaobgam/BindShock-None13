@@ -15,11 +15,19 @@ _col_down_solid		= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-
 _col_down_conect	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_conector,false,false)
 
 
+
 //Colisão COM O PLAYER
 _col_left	= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_player_normal,false,false)
 _col_right	= collision_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5,obj_player_normal,false,false)
 _col_up		= collision_rectangle(x+5,y,(x + sprite_width)-5,y - 20,obj_player_normal,false,false)
 _col_down	= collision_rectangle(x+5,y + sprite_height,(x + sprite_width)-5,y + sprite_height + 20,obj_player_normal,false,false)
+
+if _col_left || _col_right || _col_up || _col_down
+{
+	//Definir player se não tiver colisão
+	_col_player	= collision_rectangle(x-20,y-10,x+sprite_width+20,y+sprite_height+10,obj_player_normal,false,false);
+}
+
 
 //Verificar com o player
 if	_col_right && 
@@ -32,6 +40,7 @@ if	_col_right &&
 	at_esquerda || //Pode ativar na esquerda
 	_col_up &&
 	_col_up.energia == true &&
+	_col_up.in_move == false &&
 	_col_up.in_move == false &&
 	at_cima || //Pode ativar em cima
 	_col_down &&
@@ -86,7 +95,7 @@ travado_up =
 	(_col_up_solid != noone) ||
 	(_col_up_conect != noone && (!_col_up_conect.ligado || _col_up_conect._col_up_solid != noone || _col_up_conect.travado_up == 1));
 
-
+if _col_player == noone show_debug_message(_col_player)
 //travado_up		=	(_col_up_solid		||	_col_up_conect)
 //travado_down	=	(_col_down_solid	||	_col_down_conect)
 
@@ -114,6 +123,7 @@ if (_col_right_conect != noone &&
 	colisao = "Bloco" //Colisão Bloco
 	fonte_lado = "Direita" //Fonte de energia vem da direita
 	ligado_spr = true;
+	_col_player = _col_right_conect._col_player
 }
 else if (_col_left_conect != noone && 
 	_col_left_conect.energia_qnt >= 1 && 
@@ -128,6 +138,7 @@ else if (_col_left_conect != noone &&
 	fonte_lado = "Esquerda"
 	desliga_time = 0;
 	ligado_spr = true;
+	_col_player = _col_left_conect._col_player
 }
 else if (_col_up_conect != noone && 
 	_col_up_conect.energia_qnt >= 1 && 
@@ -142,6 +153,7 @@ else if (_col_up_conect != noone &&
 	fonte_lado = "Cima"
 	desliga_time = 0;
 	ligado_spr = true;
+	_col_player = _col_up_conect._col_player
 }
 else if (_col_down_conect != noone && 
 	_col_down_conect.energia_qnt >= 1 && 
@@ -156,6 +168,7 @@ else if (_col_down_conect != noone &&
 	fonte_lado = "Baixo"
 	desliga_time = 0;
 	ligado_spr = true;
+	_col_player = _col_down_conect._col_player
 }
 /*
 

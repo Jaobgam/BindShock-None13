@@ -1,18 +1,23 @@
 if (ligado)
-{	
-
+{		
 	//Se o player ta ligado e colidindo na esquerda, direita, cima ou baixo, e tem so 1 de energia
 	//Então ele não passa energia nenhuma pros outros blocos
 	//Se ele tiver mais de uma energia, ai ele passa pros outros blocos a quantidade de energia - 1
-	//Assim os outros blocos vão poder grudar também	
+	//Assim os outros blocos vão poder grudar também
+	//if _col_player == noone exit;
+	
+	var _player = _col_player
+	
 	if obj_player_normal.player_energia.energia_qnt > 1
 	{
 		//Agora se for maior que 1, vai distribuir para os outros blocos
 		energia_qnt = obj_player_normal.player_energia.energia_qnt - 1
 	}
 	
+	//if _player == noone exit;
+	
 	//Alvo
-	var _alvo = obj_player_normal;
+	var _alvo = _col_player;
 	
 	//if colisao == "Player" {_alvo = obj_player_normal; player_move = _alvo.in_move}
 	//else if colisao == "Bloco" {_alvo = b_right.col player_move = _alvo.player_move}

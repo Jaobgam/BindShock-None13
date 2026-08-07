@@ -9,8 +9,8 @@ global.modo_de_jogo = 0
 global.player_select = false
 
 //Vamos criar nossa grid
-largura		= 16;	//Horizontal
-altura		= 9;	//Vertical
+largura		= 20;	//Horizontal
+altura		= 12;	//Vertical
 tamanho_cel = 64;
 
 numb = 0;
@@ -32,13 +32,17 @@ for (var i = 0; i < largura; i++)
 }
 
 //Seleção de grid
-sel_x = 0;
-sel_y = 0;
+sel_x = 9;
+sel_y = 2;
 
 //Celula atual
 celula_atual_x = 0
 celula_atual_y = 0
 
+global.ativadores = []
+
+//Mudar
+mudar = false
 
 //Definir que todas as arrays tenham variaveis dentro
 grid[0][0] =
@@ -89,3 +93,29 @@ numero_linhas = function()
 
 //Enviar pra nosso global
 global.grid = grid;
+
+
+//Level atual
+global.level_atual = noone;
+
+//Proxima room
+global.proxima_room = noone;
+
+//Modo tutorial
+global.modo_tutorial = false;
+global.modo_tutorial_completo = false;
+modo_tutorial_dica = 0;
+modo_tutorial_alpha = 1;
+modo_tutorial_dica_feito = false;
+
+entrar = false
+
+//Configurar status de todos os leveis
+global.leveis = 
+{
+	tutorial :
+	{
+		completo : false
+	}
+}
+

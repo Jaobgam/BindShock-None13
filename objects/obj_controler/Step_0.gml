@@ -1,5 +1,6 @@
 //Modo de seleção: SELECIONAR ROBO
-	
+//Se ele estiver na room level 1, ativar modo tutorial
+if room == RoomLevel_1 {global.modo_tutorial = true} else {global.modo_tutorial = false}
 
 
 
@@ -38,18 +39,57 @@ else
 	
 	desfazer = true;
 }
-
+show_debug_message(global.ativadores)
 //Se eu pressionei enter em cima do player, mover ele
 if (keyboard_check_pressed(vk_enter))
 {
-	//Colisõa com o player
-	var _col = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_player_normal,false,false)
+	//Colisão do selecionavel
+	var _col_p = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_player_normal,false,false)
+	var _col_n = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_nucleo_verde,false,false)
+	
 	//Se eu estiver colidindo com o player e ele estiver desativado e player select for false
-	if _col && _col.ativo == false && global.player_select == false
+	if _col_p && _col_p.ativo == false && global.player_select == false
 	{
 		global.player_select = true
-		_col.ativo = true
-	}	
+		_col_p.ativo = true
+	}
+	
+	//Colisão com o nucleo de energia
+	if _col_n && _col_n.ativo && global.player_select == false
+	{
+		
+		//Limpar array
+		global.ativadores = [];
+		
+		//Verificar qual level ele esta
+		switch(room)
+		{
+			case RoomLevel_1: transicao(RoomLevel_2) break;
+			case RoomLevel_2: transicao(RoomLevel_3) break;
+			case RoomLevel_3: transicao(RoomLevel_4) break;
+			case RoomLevel_4: transicao(RoomLevel_5) break;
+			case RoomLevel_5: transicao(RoomLevel_6) break;
+		}
+		
+		//Se desfzer
+		global.player_select = true
+		
+		//Editar Pos
+		//sel_x = 9;
+		//sel_y = 2;
+		
+
+	}
+}
+
+
+//Mudar posição da celula selecionada
+if mudar
+{
+	sel_x = 9;
+	sel_y = 2;
+	
+	mudar = false
 }
 
 	//if celula_atual_x == obj_player.x && celula_atual_y == obj_player.y

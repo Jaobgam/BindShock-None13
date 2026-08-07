@@ -12,7 +12,7 @@ draw_rectangle(x+5,y,(x + sprite_width)-5,y - 20, false)*/
 
 //Check de baixo
 //draw_rectangle(x + sprite_width,y+5,x + sprite_width + 20,(y + sprite_height)-5, false)
-//draw_rectangle(x,y+5,x - 20,(y + sprite_height)-5, false)
+//draw_rectangle(x-20,y-10,x+sprite_width+20,y+sprite_height+10,false)
 /*
 
 

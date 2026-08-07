@@ -55,6 +55,9 @@ _col_up_conect		= 0;
 _col_down_solid		= 0;
 _col_down_conect	= 0;
 
+//Colisao com o player
+_col_player = 0;
+
 //Depois de 20 frames se não houver colisão, então ele desliga pra valer
 desliga_time = 0;
 desliga_time_max = 15;

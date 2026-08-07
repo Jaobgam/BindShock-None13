@@ -115,7 +115,7 @@ function pode_mover_bloco(_dx, _dy, _travado_var)
 	var _pode = true;
 	
 	//Checagem do player
-	if (place_meeting(x + _dx, y + _dy, obj_solido)) return false;
+	if (place_meeting(x + _dx, y + _dy, obj_solido)) || (place_meeting(x + _dx, y + _dy, obj_laser)) return false;
 	
 	var _col = instance_place(x + _dx, y + _dy, obj_conector);
 	if (_col != noone && (_col.ligado == false || variable_instance_get(_col, _travado_var)))
