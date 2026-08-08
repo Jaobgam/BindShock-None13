@@ -6,8 +6,8 @@
   "name":"obj_laser",
   "overriddenProperties":[],
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Objetos mapa",
+    "path":"folders/Objetos mapa.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_laser",
-    "path":"sprites/spr_laser/spr_laser.yy",
+    "name":"spr_raio",
+    "path":"sprites/spr_raio/spr_raio.yy",
   },
   "spriteMaskId":null,
   "visible":true,

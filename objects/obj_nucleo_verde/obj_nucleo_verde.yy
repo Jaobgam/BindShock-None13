@@ -10,8 +10,8 @@
   "name":"obj_nucleo_verde",
   "overriddenProperties":[],
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Objetos mapa",
+    "path":"folders/Objetos mapa.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_nucleo_verde",
-    "path":"sprites/spr_nucleo_verde/spr_nucleo_verde.yy",
+    "name":"spr_nucleo_off",
+    "path":"sprites/spr_nucleo_off/spr_nucleo_off.yy",
   },
   "spriteMaskId":null,
   "visible":true,

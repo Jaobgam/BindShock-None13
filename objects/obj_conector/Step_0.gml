@@ -1,3 +1,5 @@
+if tranca_global {ligado = false; exit;}
+
 //Colisão Esquerda
 _col_left_solid		= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_solido,false,false)
 _col_left_conect	= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,obj_conector,false,false)

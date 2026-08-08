@@ -48,6 +48,7 @@ if (keyboard_check_pressed(vk_enter) && global.player_select == false)
 	//Colisão do selecionavel
 	var _col_p = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_player_normal,false,false)
 	var _col_n = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_nucleo_verde,false,false)
+	var _col_c = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_conector,false,false)
 	
 	//Se eu estiver colidindo com o player e ele estiver desativado e player select for false
 	if _col_p && _col_p.ativo == false && global.player_select == false
@@ -90,6 +91,12 @@ if (keyboard_check_pressed(vk_enter) && global.player_select == false)
 		reinicio_pause = true;
 		
 
+	}
+	
+	//Se eu colidi com um bloco, eu vou trancar ele globalmente
+	if _col_c && global.player_select == false
+	{
+		_col_c.tranca_global = !_col_c.tranca_global
 	}
 }
 else if (keyboard_check_pressed(vk_enter) && global.player_select == true)

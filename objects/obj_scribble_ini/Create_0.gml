@@ -1,0 +1,1 @@
+global.keepAssets = [fnt_monogram,"fnt_monogram","fnt_monogram4"]

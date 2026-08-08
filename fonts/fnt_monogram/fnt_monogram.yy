@@ -230,8 +230,8 @@
   "size":24.0,
   "styleName":"Regular",
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"texture_font_mono",
+    "path":"texturegroups/texture_font_mono",
   },
   "TTFName":"",
   "usesSDF":false,

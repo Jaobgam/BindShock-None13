@@ -8,6 +8,8 @@ energia_qnt			= 0;		//Quantidade de energia (energia recebida - 1)
 colisao				= "Nenhum";		//"Nenhum" - Nenhum, "Player" - Player, "Bloco" - Outro blocco
 bloco				= [];
 
+
+tranca_global = false;
 /*
 	Como vai funcionar, o player naturalmente tem 1 de energia, se ele tivesse 2, o bloco que ele colou ia pegar uma energia pra ele
 	e essa energia ia pra outro bloco.

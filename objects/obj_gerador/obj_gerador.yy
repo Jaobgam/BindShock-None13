@@ -10,8 +10,8 @@
   "name":"obj_gerador",
   "overriddenProperties":[],
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Objetos mapa",
+    "path":"folders/Objetos mapa.yy",
   },
   "parentObjectId":{
     "name":"obj_solido",

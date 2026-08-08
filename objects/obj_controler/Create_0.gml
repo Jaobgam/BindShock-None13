@@ -103,12 +103,12 @@ frame = 0;
 global.level_atual = noone;
 
 //Fonte Scribble
-if !scribble_font_exists("fnt_monogram4")
+if !scribble_font_exists(global.keepAssets[2])
 {
-	scribble_font_bake_outline_8dir_2px("fnt_monogram","fnt_monogram4",c_black,0)
+	font = scribble_font_bake_outline_8dir_2px(global.keepAssets[1],global.keepAssets[2],c_black,0)
 }
 
-scribble_font_set_default("fnt_monogram4")
+scribble_font_set_default(global.keepAssets[2])
 
 
 //Proxima room

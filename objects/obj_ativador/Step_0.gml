@@ -13,10 +13,10 @@ ativa_down	= _col_down_ativ
 
 //Verificar qual lado ele está ligado
 //Se o ativador está colidindo com o bloco de energia (conector) || //Verificar se o outro bloco está ligado
-if (cima)		{if (ativa_up) {if ativa_up.ligado			== true && ativa_up.energia		== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
-if (baixo)		{if (ativa_down) {if ativa_down.ligado		== true && ativa_down.energia	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
-if (direita)	{if (ativa_right) {if ativa_right.ligado	== true && ativa_right.energia	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
-if (esquerda)	{if (ativa_left) {if ativa_left.ligado		== true && ativa_left.energia	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
+if (cima)		{if (ativa_up) {if ativa_up.ligado			== true && ativa_up.energia		== true && ativa_up.at_baixo		== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
+if (baixo)		{if (ativa_down) {if ativa_down.ligado		== true && ativa_down.energia	== true && ativa_down.at_cima		== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
+if (direita)	{if (ativa_right) {if ativa_right.ligado	== true && ativa_right.energia	== true && ativa_right.at_esquerda	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
+if (esquerda)	{if (ativa_left) {if ativa_left.ligado		== true && ativa_left.energia	== true && ativa_left.at_direita	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
 
 //show_debug_message(ativo)
 

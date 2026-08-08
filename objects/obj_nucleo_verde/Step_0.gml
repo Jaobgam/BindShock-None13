@@ -4,4 +4,4 @@ ativo = global.abrir_level
 
 
 //Mudar sprite
-image_index = ativo ? 1 : 0
+sprite_index = ativo ? spr_nucleo_on : spr_nucleo_off
