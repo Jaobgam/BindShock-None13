@@ -8,6 +8,9 @@ global.modo_de_jogo = 0
 //Verificar se estamos selecionando um player
 global.player_select = false
 
+//Modo ademir
+adm = true
+
 //Vamos criar nossa grid
 largura		= 20;	//Horizontal
 altura		= 12;	//Vertical
@@ -94,15 +97,25 @@ numero_linhas = function()
 //Enviar pra nosso global
 global.grid = grid;
 
+frame = 0;
 
 //Level atual
 global.level_atual = noone;
+
+//Fonte Scribble
+if !scribble_font_exists("fnt_monogram4")
+{
+	scribble_font_bake_outline_8dir_2px("fnt_monogram","fnt_monogram4",c_black,0)
+}
+
+scribble_font_set_default("fnt_monogram4")
+
 
 //Proxima room
 global.proxima_room = noone;
 
 //Modo tutorial
-global.modo_tutorial = false;
+global.modo_tutorial = true;
 global.modo_tutorial_completo = false;
 modo_tutorial_dica = 0;
 modo_tutorial_alpha = 1;

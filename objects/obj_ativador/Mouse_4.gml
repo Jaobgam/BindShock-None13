@@ -1,1 +1,1 @@
-show_message(ativo)
+//show_message(ativo)

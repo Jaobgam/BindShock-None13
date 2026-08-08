@@ -3,10 +3,10 @@ if (global.modo_de_jogo == 0) ativo = false;
 //Variaveis de ccontrole
 var _up, _down, _left, _right
 
-_up = keyboard_check(vk_up)
-_down = keyboard_check(vk_down)
-_left = keyboard_check(vk_left)
-_right = keyboard_check(vk_right)
+_up = keyboard_check(vk_up) || keyboard_check(ord("W"))
+_down = keyboard_check(vk_down) || keyboard_check(ord("S"))
+_left = keyboard_check(vk_left) || keyboard_check(ord("A"))
+_right = keyboard_check(vk_right) || keyboard_check(ord("D"))
 
 //Se o player estiver selecionado ele pode se mvoer
 if ativo
@@ -132,7 +132,7 @@ if ativo
 	#endregion
 	
 	//Ativar energia dele
-	if keyboard_check_pressed(ord("Q")) 
+	if keyboard_check_pressed(ord("Q")) || keyboard_check_pressed(ord("P"))
 	{
 		//Verificar se ele pode andar
 		if in_move == false
@@ -331,7 +331,7 @@ else
 }
 
 //Trocar sprite
-sprite_index = (energia == false) ? spr_player : spr_player_energia;
+sprite_index = (energia == false) ? spr_player_off : spr_player_on;
 
 ////Verificar se o player chegou
 //if abs(x - m_hspd) < 1 && abs(y - m_vspd) < 1

@@ -1,6 +1,6 @@
 //Modo de seleção: SELECIONAR ROBO
 //Se ele estiver na room level 1, ativar modo tutorial
-if room == RoomLevel_1 {global.modo_tutorial = true} else {global.modo_tutorial = false}
+//if room == RoomLevel_1 {global.modo_tutorial = true} else {global.modo_tutorial = false}
 
 
 
@@ -14,20 +14,20 @@ if (global.player_select == false)
 	celula_atual_y = sel_y * tamanho_cel
 
 	//Direita e esquerda
-	if (keyboard_check_pressed(vk_right)) sel_x++;
-	if (keyboard_check_pressed(vk_left)) sel_x--;
+	if (keyboard_check_pressed(vk_right)) || keyboard_check_pressed(ord("D")) sel_x++;
+	if (keyboard_check_pressed(vk_left)) || keyboard_check_pressed(ord("A")) sel_x--;
 
 	//Cima Baixo
-	if (keyboard_check_pressed(vk_up)) sel_y--;
-	if (keyboard_check_pressed(vk_down)) sel_y++;
+	if (keyboard_check_pressed(vk_up)) || keyboard_check_pressed(ord("W")) sel_y--;
+	if (keyboard_check_pressed(vk_down)) || keyboard_check_pressed(ord("S")) sel_y++;
 
 	//Pressionei pra direita e esquerda
-	if (keyboard_check(vk_right)) {if delay_x1 >= 8 {sel_x++; delay_x1 = 0} else delay_x1++; if keyboard_check_released(vk_right) delay_x1 = 0} else delay_x1 = 0;
-	if (keyboard_check(vk_left)) {if delay_x2 >= 8 {sel_x--; delay_x2 = 0} else delay_x2++; if keyboard_check_released(vk_left) delay_x2 = 0} else delay_x2 = 0;
+	if (keyboard_check(vk_right)) || keyboard_check(ord("D")) {if delay_x1 >= 8 {sel_x++; delay_x1 = 0} else delay_x1++; if keyboard_check_released(vk_right) delay_x1 = 0} else delay_x1 = 0;
+	if (keyboard_check(vk_left)) || keyboard_check(ord("A")) {if delay_x2 >= 8 {sel_x--; delay_x2 = 0} else delay_x2++; if keyboard_check_released(vk_left) delay_x2 = 0} else delay_x2 = 0;
 
 	//Pressionei pra ccima e pra baixo
-	if (keyboard_check(vk_up)) {if delay_y1 >= 8 {sel_y--; delay_y1 = 0} else delay_y1++; if keyboard_check_released(vk_up) delay_y1 = 0} else delay_y1 = 0;
-	if (keyboard_check(vk_down)) {if delay_y2 >= 8 {sel_y++; delay_y2 = 0} else delay_y2++; if keyboard_check_released(vk_down) delay_y2 = 0} else delay_y2 = 0;
+	if (keyboard_check(vk_up)) || keyboard_check(ord("W")) {if delay_y1 >= 8 {sel_y--; delay_y1 = 0} else delay_y1++; if keyboard_check_released(vk_up) delay_y1 = 0} else delay_y1 = 0;
+	if (keyboard_check(vk_down)) || keyboard_check(ord("S")) {if delay_y2 >= 8 {sel_y++; delay_y2 = 0} else delay_y2++; if keyboard_check_released(vk_down) delay_y2 = 0} else delay_y2 = 0;
 
 	//Desfazer alpha
 	desfazer = false;
@@ -43,7 +43,7 @@ else
 }
 //show_debug_message(global.ativadores)
 //Se eu pressionei enter em cima do player, mover ele
-if (keyboard_check_pressed(vk_enter))
+if (keyboard_check_pressed(vk_enter) && global.player_select == false)
 {
 	//Colisão do selecionavel
 	var _col_p = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_player_normal,false,false)
@@ -59,6 +59,9 @@ if (keyboard_check_pressed(vk_enter))
 	//Colisão com o nucleo de energia
 	if _col_n && _col_n.ativo && global.player_select == false
 	{
+		
+		//Sair do tutorial
+		global.modo_tutorial = false;
 		
 		//Limpar array
 		global.ativadores = [];
@@ -89,6 +92,11 @@ if (keyboard_check_pressed(vk_enter))
 
 	}
 }
+else if (keyboard_check_pressed(vk_enter) && global.player_select == true)
+{
+	//Se o modo player 
+	global.player_select = false;
+}
 
 
 //Mudar posição da celula selecionada
@@ -110,20 +118,16 @@ if mudar
 	//show_debug_message("gay: " +string(gay))
 
 //Se eu pressionei ESQ, sair seleção do player
-if (keyboard_check_pressed(vk_escape) && global.player_select == true)
-{
-	//Se o modo player 
-	global.player_select = false;
-}
 
-if (keyboard_check(ord("P")))
+
+if (keyboard_check(ord("Z")))
 {
 	contage_reinicio++;
 	_xscale = lerp(_xscale,1.4,.08)
 	_yscale = lerp(_yscale,1.4,.08)
 	dica_alpha = lerp(dica_alpha,1,.08)
 }
-else if (!keyboard_check(ord("P")))
+else if (!keyboard_check(ord("Z")))
 {
 	_xscale = lerp(_xscale,1,.08)
 	_yscale = lerp(_yscale,1,.08)

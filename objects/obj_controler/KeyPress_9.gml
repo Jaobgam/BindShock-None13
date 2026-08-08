@@ -1,1 +1,1 @@
-game_restart()
+if adm {game_restart()}

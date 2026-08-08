@@ -1,1 +1,1 @@
-global.abrir_level = true
+//global.abrir_level = true

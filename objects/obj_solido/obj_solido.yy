@@ -32,5 +32,5 @@
     "path":"sprites/spr_solido/spr_solido.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
