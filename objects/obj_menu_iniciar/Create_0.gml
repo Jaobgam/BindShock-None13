@@ -13,7 +13,7 @@ alpha = 1
 //Escala 
 escala = [1,1,1]
 
-global.obrigado_joga = true
+global.obrigado_joga = false
 
 //Fonte Scribble
 if !scribble_font_exists("fnt_monogram_48_4")

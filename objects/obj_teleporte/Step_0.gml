@@ -3,6 +3,7 @@ var _inst = instance_place(x,y,obj_conector)
 
 if (_inst && _inst._parado)
 {
+	
 	//Verificar se pode teletransportar
 	if (!teleporte_feito)
 	{
@@ -17,6 +18,7 @@ if (_inst && _inst._parado)
 				_inst.y = outro_teleporte_id.y
 				outro_teleporte_id.teleporte_feito = true;
 				outro_teleporte_id.em_cima = true
+				if (audio = false) {audio_play_sound(buraco_caindo,4,false) audio = true}
 			}
 		}
 	}
@@ -29,7 +31,7 @@ else
 		em_cima_delay--;
 	}
 	
-	
+	audio = false
 	teleporte_feito = false;	
 }
 
@@ -38,6 +40,7 @@ if (em_cima_delay <= 0)
 {
 	em_cima = false;	
 	em_cima_delay = 60;
+	
 }
 
 //show_debug_message("em cima delay: " + string(em_cima_delay) + " em cima: " + string(em_cima) + " id: " +string(id))

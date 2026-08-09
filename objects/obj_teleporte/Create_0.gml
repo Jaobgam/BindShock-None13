@@ -2,3 +2,5 @@
 teleporte_feito = false
 em_cima = false
 em_cima_delay = 60; //vai ser um delayzinho antes de ativar o em cima de novo
+
+audio = false

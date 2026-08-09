@@ -28,6 +28,13 @@ else
 //show_debug_message("abrir: " +string(global.abrir_level))
 //show_debug_message("player energia: " +string(obj_player_normal.energia))
 
+if _inst && !todos_ativos()
+{
+	if !audio audio_play_sound(placa_pressao,3,false,.6) audio = true;
+}
+else if !_inst audio = false
+
+
 if _inst {if !audio_is_playing(laizer) {audio_play_sound(laizer,3,false,.1)}} 
 
 if _inst sprite_index = spr_base_ligado; else sprite_index = spr_base;

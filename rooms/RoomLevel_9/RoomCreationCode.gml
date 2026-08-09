@@ -3,4 +3,7 @@ global.abrir_level = false
 layer_sequence_create("transicao",display_get_gui_width()/2,display_get_gui_height()/2,sq_transicao_in)
 
 audio_stop_sound(wire_connection__1_)
-audio_play_sound(obj_controler_musica.musicas[3],1,true)
+if (!audio_is_playing(obj_controler_musica.musicas[3]))
+{
+	audio_play_sound(obj_controler_musica.musicas[3],1,true)
+}
