@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Um",
-    "path":"folders/Conectores 1/Um.yy",
+    "path":"folders/Sprites feios/Conectores 1/Um.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

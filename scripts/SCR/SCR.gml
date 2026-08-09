@@ -5,6 +5,7 @@ function transicao(_room){
 		var inst = instance_create_layer(0,0,"controler",obj_transicao)
 		global.proxima_room = _room
 	}
+	
 }
 
 function transicao_seq(){

@@ -1,1 +1,2 @@
 ativo = false
+audio = false

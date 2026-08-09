@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"None Jam 14",
-    "path":"None Jam 14.yyp",
+    "name":"Sprites Bonitos",
+    "path":"folders/Sprites Bonitos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

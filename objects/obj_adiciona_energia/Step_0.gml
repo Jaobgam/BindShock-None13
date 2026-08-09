@@ -22,7 +22,12 @@ else
 	{
 		global.abrir_level = false
 	}
+	//Fazer player ter dois
 }
 
 //show_debug_message("abrir: " +string(global.abrir_level))
 //show_debug_message("player energia: " +string(obj_player_normal.energia))
+
+if _inst {if !audio_is_playing(laizer) {audio_play_sound(laizer,3,false,.1)}} 
+
+if _inst sprite_index = spr_base_ligado; else sprite_index = spr_base;

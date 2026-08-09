@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Dois Lateral",
-    "path":"folders/Conectores 1/Dois Lateral.yy",
+    "path":"folders/Sprites feios/Conectores 1/Dois Lateral.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

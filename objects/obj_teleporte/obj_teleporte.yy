@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_objeto_teleporte",
-    "path":"sprites/spr_objeto_teleporte/spr_objeto_teleporte.yy",
+    "name":"spr_buraco_negro",
+    "path":"sprites/spr_buraco_negro/spr_buraco_negro.yy",
   },
   "spriteMaskId":null,
   "visible":true,

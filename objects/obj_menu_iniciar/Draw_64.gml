@@ -62,8 +62,8 @@ if !tranca
 //Checar onde está selecionado e oq acontece se apertar
 switch(sel)
 {
-	case 0:	if (keyboard_check_pressed(vk_enter)) {transicao(RoomLevel_1); tranca = true;} break;
-	case 1:	if (keyboard_check_pressed(vk_enter)) {transicao(rm_menu_dos_creditos); tranca = true;} break;
+	case 0:	if (keyboard_check_pressed(vk_enter)) {transicao(RoomLevel_1); tranca = true; audio_play_sound(select,100,false)} break;
+	case 1:	if (keyboard_check_pressed(vk_enter)) {transicao(rm_menu_dos_creditos); tranca = true; audio_play_sound(select,100,false)} break;
 	case 2:	if (keyboard_check_pressed(vk_enter)) {game_end()} break;
 }
 

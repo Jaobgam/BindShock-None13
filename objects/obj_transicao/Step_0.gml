@@ -2,16 +2,23 @@
 //Se a room for igual a proxima room, significa que hora da abertura
 if (room == global.proxima_room)
 {	
+	
 	global.player_select = false
 	
 	if instance_exists(obj_controler)
 	{
 		obj_controler.mudar = true
+		
 	}
+	
+	global.proxima_room = noone;
 	
 	instance_destroy()
 }
 
+show_debug_message(room)
+show_debug_message(global.proxima_room)
+show_debug_message(a)
 /*
 if iniciou
 {

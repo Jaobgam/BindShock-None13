@@ -19,6 +19,7 @@
   "height":320,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"e1801fb9-1885-45ce-aacc-39a212900371","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e1801fb9-1885-45ce-aacc-39a212900371","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"024f7bcd-e63d-440d-a149-50cd8d53245b","blendMode":0,"displayName":"default","isLocked":false,"name":"024f7bcd-e63d-440d-a149-50cd8d53245b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tile",

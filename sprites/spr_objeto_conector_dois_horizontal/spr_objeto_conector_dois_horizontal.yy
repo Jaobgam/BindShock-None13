@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Dois",
-    "path":"folders/Conectores 1/Dois.yy",
+    "path":"folders/Sprites feios/Conectores 1/Dois.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

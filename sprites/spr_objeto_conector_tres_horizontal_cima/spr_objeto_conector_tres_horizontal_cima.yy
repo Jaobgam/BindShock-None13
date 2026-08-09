@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Tres",
-    "path":"folders/Conectores 1/Tres.yy",
+    "path":"folders/Sprites feios/Conectores 1/Tres.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

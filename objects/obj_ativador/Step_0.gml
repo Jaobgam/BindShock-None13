@@ -18,6 +18,14 @@ if (baixo)		{if (ativa_down) {if ativa_down.ligado		== true && ativa_down.energi
 if (direita)	{if (ativa_right) {if ativa_right.ligado	== true && ativa_right.energia	== true && ativa_right.at_esquerda	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
 if (esquerda)	{if (ativa_left) {if ativa_left.ligado		== true && ativa_left.energia	== true && ativa_left.at_direita	== true {ativo = true;} else {ativo = false;}} else {ativo = false;}} 
 
+if ativo && !audio
+{
+	audio_play_sound(botnoise2,100,false)
+	audio = true	
+}
+
+if (!ativo) audio = false
+
 //show_debug_message(ativo)
 
 /*

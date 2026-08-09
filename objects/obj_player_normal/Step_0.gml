@@ -11,6 +11,8 @@ _right = keyboard_check(vk_right) || keyboard_check(ord("D"))
 //Se o player estiver selecionado ele pode se mvoer
 if ativo
 {	
+	
+
 	//Se ele pode mover
 
 	#region Movimentação
@@ -102,6 +104,7 @@ if ativo
 			m_hspd += move_spd;
 			obj_controler.sel_x++;
 			in_move = true;
+			audio_play_sound(move,4,false,.2,0, random_range(0.8, 1.2));
 		}
 		else if (_left && pode_mover_bloco(-32, 0, "travado_left"))
 		{
@@ -110,6 +113,7 @@ if ativo
 			m_hspd -= move_spd;
 			obj_controler.sel_x--;
 			in_move = true;
+			audio_play_sound(move,4,false,.2,0, random_range(0.8, 1.2));
 		}
 		else if (_up && pode_mover_bloco(0, -32, "travado_up"))
 		{
@@ -118,6 +122,7 @@ if ativo
 			m_vspd -= move_spd;
 			obj_controler.sel_y--;
 			in_move = true;
+			audio_play_sound(move,4,false,.2,0, random_range(0.8, 1.2));
 		}
 		else if (_down && pode_mover_bloco(0, 32, "travado_down"))
 		{
@@ -126,6 +131,7 @@ if ativo
 			m_vspd += move_spd;
 			obj_controler.sel_y++;
 			in_move = true;
+			audio_play_sound(move,4,false,.2,0, random_range(0.8, 1.2));
 		}
 	}
 	
@@ -144,6 +150,12 @@ if ativo
 	//Verficar se o player está energizado
 	if energia
 	{
+		if !audio
+		{
+			audio_play_sound(shock__1_,8,false)
+			audio = true	
+		}
+	
 		//Gasto de energia vai ser 1
 		player_energia.energia_gasto = 1;
 		
@@ -310,6 +322,9 @@ if ativo
 		
 		//Gasto de energia
 		player_energia.energia_gasto = 0;
+		
+		//Desativo
+		audio = false
 	}
 
 }

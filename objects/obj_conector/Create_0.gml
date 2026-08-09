@@ -8,6 +8,7 @@ energia_qnt			= 0;		//Quantidade de energia (energia recebida - 1)
 colisao				= "Nenhum";		//"Nenhum" - Nenhum, "Player" - Player, "Bloco" - Outro blocco
 bloco				= [];
 
+audio = false
 
 tranca_global = false;
 /*

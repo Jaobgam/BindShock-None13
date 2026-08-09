@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"hard_to_concluse",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":66.82123,
+  "exportDir":"",
+  "name":"hard_to_concluse",
+  "parent":{
+    "name":"Som",
+    "path":"folders/Som.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"hard_to_concluse.mp3",
+  "volume":1.0,
+}

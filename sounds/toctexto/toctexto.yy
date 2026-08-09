@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"toctexto",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.07292517,
+  "exportDir":"",
+  "name":"toctexto",
+  "parent":{
+    "name":"Som",
+    "path":"folders/Som.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"toctexto.wav",
+  "volume":1.0,
+}

@@ -1,5 +1,11 @@
 if (ligado)
 {		
+	
+	if !audio
+	{
+		audio_play_sound(shok_02,4,false)
+		audio = true
+	}
 	//Se o player ta ligado e colidindo na esquerda, direita, cima ou baixo, e tem so 1 de energia
 	//Então ele não passa energia nenhuma pros outros blocos
 	//Se ele tiver mais de uma energia, ai ele passa pros outros blocos a quantidade de energia - 1
@@ -94,6 +100,9 @@ else
 	//Reseta pro próximo ciclo de movimento
 	seguir_x = true;
 	seguir_y = true;
+	
+	//Resetar audio
+	audio = false
 	
 //
 }

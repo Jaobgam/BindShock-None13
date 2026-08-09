@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Quatro",
-    "path":"folders/Conectores 1/Quatro.yy",
+    "path":"folders/Sprites feios/Conectores 1/Quatro.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

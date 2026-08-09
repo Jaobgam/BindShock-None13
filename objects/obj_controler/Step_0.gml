@@ -46,6 +46,10 @@ else
 //Se eu pressionei enter em cima do player, mover ele
 if (keyboard_check_pressed(vk_enter) && global.player_select == false)
 {
+	
+	//Audio
+	audio_play_sound(toctexto,100,false)
+	
 	//Colisão do selecionavel
 	var _col_p = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_player_normal,false,false)
 	var _col_n = collision_rectangle(celula_atual_x,celula_atual_y,celula_atual_x + tamanho_cel,celula_atual_y + tamanho_cel,obj_nucleo_verde,false,false)

@@ -4,6 +4,8 @@ energia = false; //O player vai descidir se vai ligar a energia ou desligar
 
 //Se a energia estiver ligada, ele vai poder energizar os objeto pra cada lado,
 
+audio = false
+
 //Se pode mover
 pode_mover = true	//Se pode mover ou nao
 move_delay = 15;	//Frames ate poder se mover de volta
