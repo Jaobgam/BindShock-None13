@@ -10,7 +10,11 @@ function transicao(_room){
 function transicao_seq(){
 	room_goto(global.proxima_room)
 	
-	obj_controler.reinicio_delay = 110;
+	//Reiniciar o reinicio
+	if instance_exists(obj_controler)
+	{
+		obj_controler.reinicio_delay = 110;
+	}
 }
 
 //Verificar se todos os ativadores da sala estão ativos

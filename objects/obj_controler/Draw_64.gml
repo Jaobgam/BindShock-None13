@@ -25,33 +25,51 @@ if (global.modo_tutorial)
 	
 	draw_set_alpha(modo_tutorial_alpha)
 	
-	//Se modo tutorial não foi completo, então começar ele
-	if !global.modo_tutorial_completo
+	if (room == RoomLevel_1)
 	{
-		//Dica 1
-		if (modo_tutorial_dica == 0)
+		//Se modo tutorial não foi completo, então começar ele
+		if !global.modo_tutorial_completo
 		{
-			draw_text_scribble(_gui_w, _gui_h, "Use [spr_teclado_wasd] para mexer e [spr_teclado_enter] para selecionar o player")
-			//draw_text(_gui_w,_gui_h,"Use WASD para mexer e ENTER para selecionar Player")
+			//Dica 1
+			if (modo_tutorial_dica == 0)
+			{
+				draw_text_scribble(_gui_w, _gui_h, "Use [spr_teclado_wasd] para mexer e [spr_teclado_enter] para selecionar o player")
+				//draw_text(_gui_w,_gui_h,"Use WASD para mexer e ENTER para selecionar Player")
 		
-			//Se ele apertar enter, modo tutorial ta feito
-			if keyboard_check_pressed(vk_enter) {modo_tutorial_dica_feito = true;}
-		}
-		else if (modo_tutorial_dica == 1)
-		{
-			draw_text_scribble(_gui_w,_gui_h,"Use [spr_teclado_wasd] para movimentar o player e [spr_teclado_PQ] para ligar e desligar.")
+				//Se ele apertar enter, modo tutorial ta feito
+				if keyboard_check_pressed(vk_enter) {modo_tutorial_dica_feito = true;}
+			}
+			else if (modo_tutorial_dica == 1)
+			{
+				draw_text_scribble(_gui_w,_gui_h,"Use [spr_teclado_wasd] para movimentar o player e [spr_teclado_PQ] para ligar e desligar.")
 			
-			if keyboard_check_pressed(ord("Q")) || keyboard_check_pressed(ord("P")) {modo_tutorial_dica_feito = true}
-		}
-		else if (modo_tutorial_dica == 2)
-		{
-			draw_text_scribble(_gui_w,_gui_h,"Encoste nos blocos e os mova até o circuito")
+				if keyboard_check_pressed(ord("Q")) || keyboard_check_pressed(ord("P")) {modo_tutorial_dica_feito = true}
+			}
+			else if (modo_tutorial_dica == 2)
+			{
+				draw_text_scribble(_gui_w,_gui_h,"Encoste nos blocos e os mova até o circuito")
 			
-			if global.abrir_level modo_tutorial_dica_feito = true;
+				if global.abrir_level modo_tutorial_dica_feito = true;
+			}
+			else if (modo_tutorial_dica == 3)
+			{
+				draw_text_scribble(_gui_w,_gui_h,"Aperte [spr_teclado_enter] para sair do player e selecione o nucleo verde.")
+			}
 		}
-		else if (modo_tutorial_dica == 3)
+	}
+	else if (room == RoomLevel_3)
+	{
+		//Se o tutorial não estiver completo
+		if !global.modo_tutorial_completo
 		{
-			draw_text_scribble(_gui_w,_gui_h,"Aperte [spr_teclado_enter] para sair do player e selecione o nucleo verde.")
+			if (modo_tutorial_dica == 0)
+			{
+				draw_text_scribble(_gui_w, _gui_h, "Você pode selecionar um conector com [spr_teclado_enter] para tranca-ló.")
+				//draw_text(_gui_w,_gui_h,"Use WASD para mexer e ENTER para selecionar Player")
+		
+				//Se ele apertar enter, modo tutorial ta feito
+				if keyboard_check_pressed(vk_enter) {modo_tutorial_dica_feito = true;}
+			}
 		}
 	}
 	

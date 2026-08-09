@@ -2,6 +2,7 @@
 //Se ele estiver na room level 1, ativar modo tutorial
 //if room == RoomLevel_1 {global.modo_tutorial = true} else {global.modo_tutorial = false}
 
+//Mudar de tela
 
 
 if !instance_exists(obj_player_normal) exit;

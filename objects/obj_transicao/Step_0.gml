@@ -3,7 +3,11 @@
 if (room == global.proxima_room)
 {	
 	global.player_select = false
-	obj_controler.mudar = true
+	
+	if instance_exists(obj_controler)
+	{
+		obj_controler.mudar = true
+	}
 	
 	instance_destroy()
 }

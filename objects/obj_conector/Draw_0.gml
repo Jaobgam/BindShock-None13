@@ -1,5 +1,12 @@
 draw_self()
 
+
+//Desenhar o cadeado se trancado
+if (tranca_global)
+{
+	draw_sprite(spr_tranca,0,x+32,y+32)	
+}
+
 /*
 draw_set_colour(c_olive)
 draw_set_alpha(.4)
