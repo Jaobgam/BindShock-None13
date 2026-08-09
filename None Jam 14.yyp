@@ -334,6 +334,7 @@
     {"id":{"name":"spr_torre_on","path":"sprites/spr_torre_on/spr_torre_on.yy",},},
     {"id":{"name":"spr_torre","path":"sprites/spr_torre/spr_torre.yy",},},
     {"id":{"name":"spr_tranca","path":"sprites/spr_tranca/spr_tranca.yy",},},
+    {"id":{"name":"spr","path":"sprites/spr/spr.yy",},},
     {"id":{"name":"Sprite38","path":"sprites/Sprite38/Sprite38.yy",},},
     {"id":{"name":"spt","path":"sprites/spt/spt.yy",},},
     {"id":{"name":"tile_mapa_borda","path":"tilesets/tile_mapa_borda/tile_mapa_borda.yy",},},

@@ -9,7 +9,7 @@ global.modo_de_jogo = 0
 global.player_select = false
 
 //Modo ademir
-adm = true
+adm = false
 
 //Vamos criar nossa grid
 largura		= 20;	//Horizontal
