@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"boot_oper__1_",
   "parent":{
-    "name":"Som",
-    "path":"folders/Som.yy",
+    "name":"Musicas",
+    "path":"folders/Som/Musicas.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

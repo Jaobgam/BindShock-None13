@@ -53,7 +53,7 @@ if (global.modo_tutorial)
 			}
 			else if (modo_tutorial_dica == 3)
 			{
-				draw_text_scribble(_gui_w,_gui_h,"Aperte [spr_teclado_enter] para sair do player e selecione o nucleo verde.")
+				draw_text_scribble(_gui_w,_gui_h,"Aperte [spr_teclado_enter] para sair do player e selecione o núcleo [c_yellow]amarelo[/c].")
 			}
 		}
 	}
@@ -106,8 +106,12 @@ if (global.modo_tutorial)
 //Dica de reiniciar
 draw_set_alpha(dica_alpha)
 
+//show_debug_message("tutorial completo:" + string(global.modo_tutorial_completo))
+//show_debug_message("tutorial:" + string(global.modo_tutorial))
+//show_debug_message("modo_tutorial_dica:" + string(modo_tutorial_dica))
 
-if global.dica_reiniciar
+
+if global.dica_reiniciar &&  room != rm_menu_dos_creditos
 {
 	//Pegar valor da room
 	var _gui_w = display_get_gui_width() * .78

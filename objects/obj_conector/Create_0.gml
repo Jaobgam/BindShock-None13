@@ -1,5 +1,4 @@
-image_speed = 0;
-image_index = 0;
+sprite_index = sprite_off;
 
 ligado				= false;	//Se ele esta ligado
 em_move				= false;

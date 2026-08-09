@@ -1,5 +1,7 @@
 if (ligado)
-{		
+{	
+	//Mudar sprite
+	//sprite_index = sprite_on;
 	
 	if !audio
 	{
@@ -80,7 +82,7 @@ if (ligado)
 else 
 {
 	//Mudar sprite	
-	image_index = 0;
+	//sprite_index = sprite_off;
 	
 	//Resetar energia
 	energia_qnt = 0;
@@ -108,4 +110,4 @@ else
 }
 
 //Mudar de sprite
-image_index = ligado ? 1 : 0;
+sprite_index = ligado ? sprite_on : sprite_off;

@@ -84,7 +84,7 @@ if (keyboard_check_pressed(vk_enter) && global.player_select == false)
 			case RoomLevel_7: transicao(RoomLevel_8) break;
 			case RoomLevel_8: transicao(RoomLevel_9) break;
 			case RoomLevel_9: transicao(RoomLevel_10) break;
-			case RoomLevel_10: transicao(RoomFinalAgradecimentos) break;
+			case RoomLevel_10: transicao(rm_menu_dos_creditos); global.obrigado_joga = true break;
 		}
 		
 		//Se desfzer
@@ -109,6 +109,7 @@ else if (keyboard_check_pressed(vk_enter) && global.player_select == true)
 	//Se o modo player 
 	global.player_select = false;
 }
+
 
 
 //Mudar posição da celula selecionada

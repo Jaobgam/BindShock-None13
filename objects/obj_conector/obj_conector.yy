@@ -35,9 +35,12 @@
     {"$GMObjectProperty":"v2","%Name":"at_cima","filters":[],"listItems":[],"multiselect":false,"name":"at_cima","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
     {"$GMObjectProperty":"v2","%Name":"at_baixo","filters":[],"listItems":[],"multiselect":false,"name":"at_baixo","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
     {"$GMObjectProperty":"v2","%Name":"energia","filters":[],"listItems":[],"multiselect":false,"name":"energia","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
-    {"$GMObjectProperty":"v2","%Name":"sprite_usado","filters":[
+    {"$GMObjectProperty":"v2","%Name":"sprite_on","filters":[
         "GMSprite",
-      ],"listItems":[],"multiselect":false,"name":"sprite_usado","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+      ],"listItems":[],"multiselect":false,"name":"sprite_on","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"sprite_off","filters":[
+        "GMSprite",
+      ],"listItems":[],"multiselect":false,"name":"sprite_off","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

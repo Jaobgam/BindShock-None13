@@ -11,7 +11,7 @@ if (room == global.proxima_room)
 		
 	}
 	
-	global.proxima_room = noone;
+	//global.proxima_room = noone;
 	
 	instance_destroy()
 }

@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"hard_to_concluse",
   "parent":{
-    "name":"Som",
-    "path":"folders/Som.yy",
+    "name":"Musicas",
+    "path":"folders/Som/Musicas.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -1,4 +1,5 @@
-draw_sprite(sprite_index,image_index,x,y)
+draw_self();
+//draw_sprite(sprite_index,image_index,x,y)
 
 //Desenhar o cadeado se trancado
 if (tranca_global)

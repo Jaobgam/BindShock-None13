@@ -1,4 +1,4 @@
-if ativo == true image_index = 1 else image_index = 0
+if ativo == true sprite_index = spr_torre_on else sprite_index = spr_torre
 
 //Colisão com bloco de energia, esperar receber energia do bloco
 var _col_left_ativ		= collision_rectangle(x,y+5,x - 20,(y + sprite_height)-5,									obj_conector,false,false)

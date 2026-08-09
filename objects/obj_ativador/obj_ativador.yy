@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_objeto_ativador",
-    "path":"sprites/spr_objeto_ativador/spr_objeto_ativador.yy",
+    "name":"spr_torre",
+    "path":"sprites/spr_torre/spr_torre.yy",
   },
   "spriteMaskId":null,
   "visible":true,
