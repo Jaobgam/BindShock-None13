@@ -336,6 +336,7 @@
     {"id":{"name":"spr_tranca","path":"sprites/spr_tranca/spr_tranca.yy",},},
     {"id":{"name":"spr","path":"sprites/spr/spr.yy",},},
     {"id":{"name":"Sprite38","path":"sprites/Sprite38/Sprite38.yy",},},
+    {"id":{"name":"Sprite80","path":"sprites/Sprite80/Sprite80.yy",},},
     {"id":{"name":"spt","path":"sprites/spt/spt.yy",},},
     {"id":{"name":"tile_mapa_borda","path":"tilesets/tile_mapa_borda/tile_mapa_borda.yy",},},
     {"id":{"name":"tile_mapa_buracos","path":"tilesets/tile_mapa_buracos/tile_mapa_buracos.yy",},},
